@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:firstapi/home.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 //import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
@@ -32,6 +33,14 @@ class _LoginState extends State<Login> {
         print('Login Succesfully');
       }else{
         print('faild');
+         Fluttertoast.showToast(
+                msg: "${data["message"]}",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 2,
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 16.0 );
       }
     }catch(e){
       print(e.toString());
